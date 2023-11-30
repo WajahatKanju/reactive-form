@@ -1,47 +1,46 @@
 <section class="container">
   <header>Registration Form</header>
 
-  <form class="form">
+  <form [formGroup]="reactiveForm" class="form" (ngSubmit)="FormSubmitted()" >
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" />
+        <input formControlName="firstName" placeholder="First Name" type="text"/>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Last Name" />
+        <input formControlName="lastName" placeholder="Last Name" type="text"/>
       </div>
     </div>
 
     <div class="input-box">
-      <input type="text" placeholder="Email" />
+      <input formControlName="email" placeholder="Email" type="text" />
     </div>
 
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="username" />
+        <input formControlName="username" placeholder="username" type="text"/>
         <button class="btn-gen-username" type="button">
           Create a Username
         </button>
       </div>
       <div class="input-box">
-        <input type="date" placeholder="Date of Birth" />
+        <input formControlName="dob" placeholder="Date of Birth" type="date"/>
       </div>
     </div>
-
 
 
     <div class="gender-box">
       <h3>Gender</h3>
       <div class="gender-option">
         <div class="gender">
-          <input type="radio" value="male" id="check-male" />
+          <input formControlName="gender" id="check-male" type="radio" value="male"/>
           <label for="check-male">Male</label>
         </div>
         <div class="gender">
-          <input type="radio" value="female" id="check-female" />
+          <input formControlName="gender" id="check-female" type="radio" value="female"/>
           <label for="check-female">Female</label>
         </div>
         <div class="gender">
-          <input type="radio" value="other" id="check-other" />
+          <input formControlName="gender" id="check-other" type="radio" value="other"/>
           <label for="check-other">Prefer not to say</label>
         </div>
       </div>
@@ -49,62 +48,63 @@
 
     <div class="input-box address">
       <label>Address</label>
-      <input type="text" placeholder="Street address" />
+      <input formControlName="street" placeholder="Street address" type="text"/>
       <div class="column">
         <div class="select-box">
-          <select name="country">
+          <select formControlName="country" name="country">
             <option hidden>Country</option>
             <option>America</option>
+            <option>Pakistan</option>
             <option>Japan</option>
             <option>India</option>
             <option>Nepal</option>
           </select>
         </div>
-        <input type="text" placeholder="City" />
+        <input formControlName="city" placeholder="City" type="text"/>
       </div>
       <div class="column">
-        <input type="text" placeholder="Region" />
-        <input type="number" placeholder="Postal code" />
+        <input formControlName="region" placeholder="Region" type="text"/>
+        <input formControlName="postal" placeholder="Postal code" type="number"/>
       </div>
     </div>
 
     <!--HTML for Skills Form Array -->
-    <div class="input-box skills" formArrayName="skills">
-      <h4>Add Skills</h4>
-      <div class="column">
-        <input type="text" placeholder="Add Skill...">
-        <button type="button" class="btn-add-delete">Delete</button>
-      </div>
-    </div>
-    <button type="button" class="btn-add-delete">Add Skills</button>
+<!--    <div class="input-box skills" formArrayName="skills">-->
+<!--      <h4>Add Skills</h4>-->
+<!--      <div class="column">-->
+<!--        <input placeholder="Add Skill..." type="text">-->
+<!--        <button class="btn-add-delete" type="button">Delete</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button class="btn-add-delete" type="button">Add Skills</button>-->
 
-    <!--HTML for Experience Form Array -->
-    <div class="input-box">
-      <div class="experience">
-        <label>Experience</label>
-        <input type="text" placeholder="Company Name" />
-        <div class="column">
-          <div class="select-box">
-            <select>
-              <option hidden>Position</option>
-              <option>Junior Developer</option>
-              <option>Software Developer</option>
-              <option>Senior Developer</option>
-              <option>Team Lead</option>
-            </select>
-          </div>
-          <input type="number" placeholder="Experience" />
-        </div>
-        <div class="column">
-          <input type="date" placeholder="Start Date" />
-          <input type="date" placeholder="End Date" />
-        </div>
-        <button type="button" class="btn-add-delete">Delete Experience</button>
-      </div>
-    </div>
-    <button type="button" class="btn-add-delete">Add Experience</button>
+<!--    &lt;!&ndash;HTML for Experience Form Array &ndash;&gt;-->
+<!--    <div class="input-box">-->
+<!--      <div class="experience">-->
+<!--        <label>Experience</label>-->
+<!--        <input placeholder="Company Name" type="text"/>-->
+<!--        <div class="column">-->
+<!--          <div class="select-box">-->
+<!--            <select>-->
+<!--              <option hidden>Position</option>-->
+<!--              <option>Junior Developer</option>-->
+<!--              <option>Software Developer</option>-->
+<!--              <option>Senior Developer</option>-->
+<!--              <option>Team Lead</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <input placeholder="Experience" type="number"/>-->
+<!--        </div>-->
+<!--        <div class="column">-->
+<!--          <input placeholder="Start Date" type="date"/>-->
+<!--          <input placeholder="End Date" type="date"/>-->
+<!--        </div>-->
+<!--        <button class="btn-add-delete" type="button">Delete Experience</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button class="btn-add-delete" type="button">Add Experience</button>-->
 
-    <input type="submit" value="Submit" class="submit-btn">
+    <input class="submit-btn" type="submit" value="Submit">
     <!-- [disabled]="!reactiveForm.valid" -->
   </form>
 </section>
