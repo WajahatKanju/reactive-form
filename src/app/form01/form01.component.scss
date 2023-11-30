@@ -42,12 +42,11 @@
 
 .form :where(.input-box input:not(.ng-invalid), .input-box .ng-untouched, .select-box) {
   border: 1px solid #ddd;
+
   select {
     border: none;
   }
 }
-
-
 
 
 .input-box input:focus {
@@ -55,8 +54,9 @@
 }
 
 .form .column {
-  display: flex;
-  column-gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-gap: 1rem;
 }
 
 .form .gender-box {
@@ -132,7 +132,11 @@
 }
 
 .form .submit-btn:hover {
-  background: #E70044;
+  background: #FF4081;
+}
+
+.form .submit-btn:disabled {
+  background: #CCCCCC;
 }
 
 /*Responsive*/
@@ -165,6 +169,10 @@ small {
   background: #E7005E;
   border: none;
   color: white;
+
+  &:hover {
+    background: #FF4081;
+  }
 }
 
 .btn-add-delete {
@@ -174,12 +182,19 @@ small {
   background: #E7005E;
   border: none;
   color: white;
+  &:hover {
+    background: #FF4081;
+  }
 }
 
 .skills {
   padding: 20px 0px;
-}
 
+  input {
+    min-width: 0 !important;
+    grid-column: span all;
+  }
+}
 .user-detail-container {
   position: relative;
   max-width: 700px;
